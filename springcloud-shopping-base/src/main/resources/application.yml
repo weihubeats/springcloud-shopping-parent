@@ -1,0 +1,11 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: shopping-base
+datasource:
+  driver-class-name:com.mysql.jdbc.Driver
+  url: jdbc:mysql://49.233.150.105:3306/springcloud_shopping?characterEncoding=utf-8
+jpa:
+  database:mysql
+  show-sql:true

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springcloud-shopping-member" />
+        <module name="springcloud-shopping-order" />
+        <module name="springcloud-shopping-mybatis" />
+        <module name="springcloud-shopping-eurekaserver1" />
+        <module name="springcloud-shopping-user" />
+        <module name="springcloud-shopping-base" />
+        <module name="springcloud-shopping-rabbitmq-demo" />
+        <module name="springcloud-shopping-rabbitmq-consumer" />
+        <module name="springcloud-shopping-common" />
+        <module name="springcloud-shopping-eurekaserver" />
+        <module name="springcloud-shopping-api-member" />
+        <module name="springcloud-shopping-rabbitmq" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="springcloud-shopping-api" options="-parameters" />
+      <module name="springcloud-shopping-api-member" options="-parameters" />
+      <module name="springcloud-shopping-base" options="-parameters" />
+      <module name="springcloud-shopping-common" options="-parameters" />
+      <module name="springcloud-shopping-eurekaserver" options="-parameters" />
+      <module name="springcloud-shopping-eurekaserver1" options="-parameters" />
+      <module name="springcloud-shopping-member" options="-parameters" />
+      <module name="springcloud-shopping-mybatis" options="-parameters" />
+      <module name="springcloud-shopping-order" options="-parameters" />
+      <module name="springcloud-shopping-rabbitmq" options="-parameters" />
+      <module name="springcloud-shopping-rabbitmq-consumer" options="-parameters" />
+      <module name="springcloud-shopping-rabbitmq-demo" options="-parameters" />
+      <module name="springcloud-shopping-user" options="-parameters" />
+    </option>
+  </component>
+</project>

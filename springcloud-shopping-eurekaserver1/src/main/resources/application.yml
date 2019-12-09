@@ -1,0 +1,20 @@
+###服务端口号
+server:
+  port: 8009
+###eureka 基本信息配置
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  instance:
+    ###注册到eurekaip地址
+     hostname: 127.0.0.1
+#    hostname: 172.21.0.13
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8100/eureka/
+    ###集群改为true注册到其他eureka
+    register-with-eureka: true
+    ###群改为true注册到其他eureka
+    fetch-registry: true

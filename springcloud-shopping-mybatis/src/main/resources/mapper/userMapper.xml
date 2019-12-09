@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.dao.UserDao" >
+
+    <!-- user table all fields -->
+    <sql id="Base_Column_List" >
+	 id,iphone,password,name,sex
+    </sql>
+    <!-- 查询条件 -->
+    <sql id="Example_Where_Clause">
+        where 1=1
+        <trim  suffixOverrides="," >
+            <if test="user.id != null" >
+                and ID =  #{user.id}
+            </if>
+            <if test="user.iphone != null and user.countryName  != ''" >
+                and VERSION =  #{countryPo.version}
+            </if>
+            <if test="user.password != null  and user.countryName  != ''" >
+                and COUNTRY_NAME =  #{countryPo.countryName}
+            </if>
+            <if test="user.name != null  and user.name  != ''" >
+                and COUNTRY_CODE =  #{countryPo.countryCode}
+            </if>
+            <if test="user.sex != null  and user.sex  != ''" >
+                and TWO_CODE =  #{countryPo.twoCode}
+            </if>
+        </trim>
+    </sql>
+    <select id="getUser" resultType="User">
+    select  <include refid="Base_Column_List"/> from sp_user
+    </select>
+
+    <insert id = "addUser" parameterType="User">
+        insert  into sp_user(iphone,password,name,sex) values
+         (#{iphone,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR})
+    </insert>
+
+
+</mapper>

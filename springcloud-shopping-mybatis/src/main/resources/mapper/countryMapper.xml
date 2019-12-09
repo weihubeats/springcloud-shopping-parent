@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.dao.CountryDao" >
+<!-- Result Map-->
+<resultMap id="BaseResultMap" type="com.mybatis.po.CountryPo" >
+	<result column="ID" property="id"/>
+	<result column="VERSION" property="version"/>
+	<result column="COUNTRY_NAME" property="countryName"/>
+	<result column="COUNTRY_CODE" property="countryCode"/>
+	<result column="TWO_CODE" property="twoCode"/>
+	<result column="THREE_CODE" property="threeCode"/>
+	<result column="IS_TERROR" property="isTerror"/>
+	<result column="CHINESE_NAME" property="chineseName"/>
+	<result column="ALIAS_NAME" property="aliasName"/>
+</resultMap>
+       
+<!-- bl_country table all fields -->
+<sql id="Base_Column_List" >
+	 ID,VERSION,COUNTRY_NAME,COUNTRY_CODE,TWO_CODE,THREE_CODE,IS_TERROR,CHINESE_NAME,ALIAS_NAME
+</sql>
+   
+   
+<!-- 查询条件 -->
+<sql id="Example_Where_Clause">
+where 1=1
+<trim  suffixOverrides="," >
+	<if test="countryPo.id != null" >
+	    and ID =  #{countryPo.id}
+	</if>
+	<if test="countryPo.version != null" >
+	    and VERSION =  #{countryPo.version}
+	</if>
+	 	<if test="countryPo.countryName != null  and countryPo.countryName  != ''" >
+	    and COUNTRY_NAME =  #{countryPo.countryName}
+	</if>
+	 	<if test="countryPo.countryCode != null  and countryPo.countryCode  != ''" >
+	    and COUNTRY_CODE =  #{countryPo.countryCode}
+	</if>
+	 	<if test="countryPo.twoCode != null  and countryPo.twoCode  != ''" >
+	    and TWO_CODE =  #{countryPo.twoCode}
+	</if>
+	 	<if test="countryPo.threeCode != null  and countryPo.threeCode  != ''" >
+	    and THREE_CODE =  #{countryPo.threeCode}
+	</if>
+	 	<if test="countryPo.isTerror != null  and countryPo.isTerror  != ''" >
+	    and IS_TERROR =  #{countryPo.isTerror}
+	</if>
+	 	<if test="countryPo.chineseName != null  and countryPo.chineseName  != ''" >
+	    and CHINESE_NAME =  #{countryPo.chineseName}
+	</if>
+	 	<if test="countryPo.aliasName != null  and countryPo.aliasName  != ''" >
+	    and ALIAS_NAME =  #{countryPo.aliasName}
+	</if>
+</trim>
+</sql>
+
+<!-- 查询条件 -->
+<sql id="Example_And_Clause">
+<trim  suffixOverrides="," >
+	<if test="countryPo.id != null" >
+	    and ID =  #{countryPo.id}
+	</if>
+	<if test="countryPo.version != null" >
+	    and VERSION =  #{countryPo.version}
+	</if>
+	 	<if test="countryPo.countryName != null  and countryPo.countryName  != ''" >
+	    and COUNTRY_NAME =  #{countryPo.countryName}
+	</if>
+	 	<if test="countryPo.countryCode != null  and countryPo.countryCode  != ''" >
+	    and COUNTRY_CODE =  #{countryPo.countryCode}
+	</if>
+	 	<if test="countryPo.twoCode != null  and countryPo.twoCode  != ''" >
+	    and TWO_CODE =  #{countryPo.twoCode}
+	</if>
+	 	<if test="countryPo.threeCode != null  and countryPo.threeCode  != ''" >
+	    and THREE_CODE =  #{countryPo.threeCode}
+	</if>
+	 	<if test="countryPo.isTerror != null  and countryPo.isTerror  != ''" >
+	    and IS_TERROR =  #{countryPo.isTerror}
+	</if>
+	 	<if test="countryPo.chineseName != null  and countryPo.chineseName  != ''" >
+	    and CHINESE_NAME =  #{countryPo.chineseName}
+	</if>
+	 	<if test="countryPo.aliasName != null  and countryPo.aliasName  != ''" >
+	    and ALIAS_NAME =  #{countryPo.aliasName}
+	</if>
+</trim>
+</sql>
+  
+
+<!-- 插入记录 -->
+<insert id="save" parameterType="Object" >
+  INSERT INTO bl_country(ID,VERSION,COUNTRY_NAME,COUNTRY_CODE,TWO_CODE,THREE_CODE,IS_TERROR,CHINESE_NAME,ALIAS_NAME) VALUES(#{id,jdbcType=BIGINT},#{version,jdbcType=INTEGER},#{countryName,jdbcType=VARCHAR},#{countryCode,jdbcType=VARCHAR},#{twoCode,jdbcType=VARCHAR},#{threeCode,jdbcType=VARCHAR},#{isTerror,jdbcType=VARCHAR},#{chineseName,jdbcType=VARCHAR},#{aliasName,jdbcType=VARCHAR})
+</insert>
+
+<!-- 根据id，修改记录-->  
+ <update id="updateByPrimaryKey" parameterType="Object" >
+  UPDATE  bl_country SET  ID=#{id,jdbcType=BIGINT},VERSION=#{version,jdbcType=INTEGER},COUNTRY_NAME=#{countryName,jdbcType=VARCHAR},COUNTRY_CODE=#{countryCode,jdbcType=VARCHAR},TWO_CODE=#{twoCode,jdbcType=VARCHAR},THREE_CODE=#{threeCode,jdbcType=VARCHAR},IS_TERROR=#{isTerror,jdbcType=VARCHAR},CHINESE_NAME=#{chineseName,jdbcType=VARCHAR},ALIAS_NAME=#{aliasName,jdbcType=VARCHAR} WHERE ID=#{id,jdbcType=BIGINT}
+ </update>
+ 
+ <!-- 修改记录，只修改只不为空的字段 -->
+<update id="update" parameterType="Object" >
+		<trim  suffixOverrides="," >
+	UPDATE bl_country SET 
+	<if test="id != null  ">
+		ID=#{id,jdbcType=BIGINT},
+	</if>
+	<if test="version != null  ">
+		VERSION=#{version,jdbcType=INTEGER},
+	</if>
+	<if test="countryName != null  ">
+		COUNTRY_NAME=#{countryName,jdbcType=VARCHAR},
+	</if>
+	<if test="countryCode != null  ">
+		COUNTRY_CODE=#{countryCode,jdbcType=VARCHAR},
+	</if>
+	<if test="twoCode != null  ">
+		TWO_CODE=#{twoCode,jdbcType=VARCHAR},
+	</if>
+	<if test="threeCode != null  ">
+		THREE_CODE=#{threeCode,jdbcType=VARCHAR},
+	</if>
+	<if test="isTerror != null  ">
+		IS_TERROR=#{isTerror,jdbcType=VARCHAR},
+	</if>
+	<if test="chineseName != null  ">
+		CHINESE_NAME=#{chineseName,jdbcType=VARCHAR},
+	</if>
+	<if test="aliasName != null  ">
+		ALIAS_NAME=#{aliasName,jdbcType=VARCHAR},
+	</if>
+</trim>
+	 WHERE ID=#{id,jdbcType=BIGINT}
+
+</update>
+
+<!-- 删除记录 -->
+<delete id="delete" parameterType="Object">
+	DELETE FROM  bl_country WHERE ID=#{id,jdbcType=BIGINT}
+</delete>
+ 
+<!-- 根据id查询 CountryPo -->
+<select id="detail"  resultMap="BaseResultMap" parameterType="Object">
+	SELECT  ID,VERSION,COUNTRY_NAME,COUNTRY_CODE,TWO_CODE,THREE_CODE,IS_TERROR,CHINESE_NAME,ALIAS_NAME FROM bl_country WHERE ID=#{id,jdbcType=BIGINT}
+</select>
+
+<!-- CountryPo 列表总数-->
+<select id="count" resultType="long"  parameterType="Object">
+	select count(1) from bl_country 
+	<include refid="Example_Where_Clause"/>
+</select>
+   	
+<!-- 查询CountryPo列表 -->
+<select id="getList" resultMap="BaseResultMap">
+	select 
+	<include refid="Base_Column_List"/>
+	from bl_country 
+	<include refid="Example_Where_Clause"/>
+	 limit #{startIndex},#{pageSize}
+</select>
+
+	<!-- 查询CountryPo列表 -->
+	<select id="getAllList" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List"/>
+		from bl_country
+	</select>
+
+	<!-- 查询CountryPo列表 -->
+	<select id="findCountryByName" resultMap="BaseResultMap" parameterType="String">
+		select
+		<include refid="Base_Column_List"/>
+		from bl_country where COUNTRY_NAME = #{countryName}
+	</select>
+
+</mapper>   

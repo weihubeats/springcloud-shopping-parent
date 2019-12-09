@@ -1,0 +1,15 @@
+server:
+  port: 9111
+spring:
+  application:
+    name: shopping-order
+eureka:
+  client:
+    service-url:
+#      defaultZone: http://49.233.150.105:8100//eureka
+      defaultZone: http://127.0.0.1:8100//eureka
+
+
+    register-with-eureka: true
+    fetch-registry: true
+

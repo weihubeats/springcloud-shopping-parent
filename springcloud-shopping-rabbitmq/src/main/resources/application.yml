@@ -1,0 +1,16 @@
+server:
+  port: 9008
+spring:
+  application:
+    name: shopping-rabbitmq
+  rabbitmq:
+    ## 连接地址
+    host: 49.233.150.105
+    ## 端口号
+    port: 5672
+    ##账号
+    username: admin
+    ##密码
+    password: admin
+    virtual-host: /admin_host
+    ##dynamic: true
