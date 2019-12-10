@@ -19,8 +19,8 @@ import java.lang.reflect.Method;
  * @version 1.0
  * @date 2019/12/7 18:14
  */
-@Component
-@Aspect
+//@Component
+//@Aspect
 @Slf4j
 public class AopTransaction {
 

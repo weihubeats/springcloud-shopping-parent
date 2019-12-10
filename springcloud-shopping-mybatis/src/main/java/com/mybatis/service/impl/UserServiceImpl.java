@@ -30,7 +30,6 @@ public class UserServiceImpl implements UserService {
     public void addUser(User user) {
         userDao.addUser(user);
         //模拟发生异常
-        int i = 1/0;
         userDao.addUser(user);
     }
 
