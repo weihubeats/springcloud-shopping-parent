@@ -14,7 +14,7 @@ public class OracleToMysql {
     static final String MYSQL_DRIVER = "com.mysql.jdbc.Driver";
     static final String ORACLE_DRIVER = "oracle.jdbc.driver.OracleDriver";
     // uat
-    static final String MYSQL_URL = "jdbc:mysql://10.16.91.67:3306/zou?useUnicode=true&autoReconnect=true&allowMultiQueries=true&useSSL=false&serverTimezone=Asia/Shanghai";
+    static final String MYSQL_URL = "jdbc:mysql://10.16.91.67:3306/aml-test?useUnicode=true&autoReconnect=true&allowMultiQueries=true&useSSL=false&serverTimezone=Asia/Shanghai";
     static final String ORACLE_URL = "jdbc:oracle:thin:@10.16.86.103:1601:FTSHARE";
     static final String MYSQL_USERNAME = "Fin_admin";
     static final String ORACLE_USERNAME = "aml";
@@ -117,7 +117,7 @@ public class OracleToMysql {
                 //获取最后一行去,
                 int oracleCount = Utils.sumColumn(resultSet);
 
-                System.out.println("表" + tableName + "数据量为: " + oracleCount);
+                System.out.println("表: " + tableName + "数据量为: " + oracleCount);
                 //开启事物
                 conn.setAutoCommit(false);
                 //如果表里面有数据,执行mysql 脚本
@@ -128,14 +128,13 @@ public class OracleToMysql {
                         for (int i =1; i <= sumColum; i++) {
                             value = resultSet.getString(i);
                             if (value == null){
+                                //为null 不拼接 ''
                                 mysqlSql.append(value + ",");
                             } else {
                                 if (value.contains("'")) {
                                     value = value.replace("'","''");
                                 }
                                     mysqlSql.append("'" + value + "'" + ",");
-
-
                             }
 
                         }
