@@ -20,21 +20,21 @@ public class OracleToMysql {
     static final String ORACLE_USERNAME = "aml";
     static final String MYSQL_PASSWORD = "Fin_admin#0824";
     static final String ORACLE_PASSWORD = "aml#0921";
-    static final String SQL = "select `ID_`,USERNAME,POLITICAL,WRONGPASSWORD,PASSWORD from ACT_GE_PROPERTY";
     static int count = 0;
-    static List<String> list = new ArrayList<>();
     static String oracleSql = "";
     static StringBuffer coulum = new StringBuffer();
+    //待``所有列，防止mysql出现关键字冲突
+    static StringBuffer mysqlColumn = new StringBuffer();
     //所有列
     static String columnName;
     static int sumColum;
+    static Connection mysqlCon = null;
+    static Connection oracleCon = null;
+    //临时值
+    static String value;
 
     public static void main(String[] args) {
 
-        Connection mysqlCon = null;
-        Connection oracleCon = null;
-        PreparedStatement mysqlPs = null;
-        PreparedStatement oraclePs = null;
         try {
             Class.forName(MYSQL_DRIVER);
             Class.forName(ORACLE_DRIVER);
@@ -60,125 +60,105 @@ public class OracleToMysql {
 
     }
 
-    public static String convertDatabaseCharsetType(String in, String type) {
-        String dbUser;
-        if (in != null) {
-            if (type.equals("oracle")) {
-                dbUser = in.toUpperCase();
-            } else if (type.equals("postgresql")) {
-                dbUser = "public";
-            } else if (type.equals("mysql")) {
-                dbUser = null;
-            } else if (type.equals("mssqlserver")) {
-                dbUser = null;
-            } else if (type.equals("db2")) {
-                dbUser = in.toUpperCase();
-            } else {
-                dbUser = in;
-            }
-        } else {
-            dbUser = "public";
-        }
-        return dbUser;
-    }
-    // ,PreparedStatement oraclePs
-    private static void getTables(Connection conn, Connection oracleCon) throws SQLException {
+
+    private static void getTables(Connection conn, Connection oracleCon) throws Exception {
         DatabaseMetaData dbMetData = conn.getMetaData();
-        // mysql convertDatabaseCharsetType null
         ResultSet rs = dbMetData.getTables(null,
-                convertDatabaseCharsetType("zou", "mysql"), null,
+                Utils.convertDatabaseCharsetType("zou", "mysql"), null,
                 new String[] { "TABLE"});
 
         while (rs.next()) {
             if (rs.getString(4) != null
                     && (rs.getString(4).equalsIgnoreCase("TABLE"))) {
                 String tableName = rs.getString(3).toLowerCase();
-                System.out.print("tableName " + tableName + "\n");
+                System.out.println("tableName " + tableName);
                 // 根据表名提取表里面信息：
                 ResultSet colRet = dbMetData.getColumns(null, "%", tableName,
                         "%");
 
-                colRet.last();
                 //每个表的列数
-                sumColum = colRet.getRow();
-                colRet.beforeFirst();
+                sumColum = Utils.sumColumn(colRet);
+
 
                 while (colRet.next()) {
-
                     columnName = colRet.getString("COLUMN_NAME");
+                    //去掉mysql主键
                     if (columnName.equals("ID_")){
+                        sumColum--;
                         continue;
                     }
                     coulum.append(columnName + ",");
-
-
+                    mysqlColumn.append("`" + columnName + "`" + ",");
                 }
+                //去掉末尾逗号
                 coulum = coulum.deleteCharAt(coulum.length()-1);
-                System.out.println("所有列 " + coulum);
-                System.out.println("总列数: " + sumColum);
+                mysqlColumn = mysqlColumn.deleteCharAt(mysqlColumn.length()-1);
+
+                System.out.println("所有列coulum " + coulum);
+                System.out.println("总列数sumColum: " + sumColum);
+                //拼接oracle SQL
                 oracleSql = "select " + coulum + " from " + tableName;
                 System.out.println("oracle执行sql为： " + oracleSql);
                 Statement oracleps = oracleCon.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
                 ResultSet resultSet = null;
                 try {
                     resultSet = oracleps.executeQuery(oracleSql + "");
-                    System.out.println("清空sql");
-
-
                 } catch (SQLSyntaxErrorException e) {
                     System.out.println("表不存在 " + tableName);
+                    System.out.println("清空sql");
                     coulum.setLength(0);
+                    mysqlColumn.setLength(0);
                     continue;
                 }
 
                 //重置执行sql
                 oracleSql ="";
-                StringBuffer sql1 = new StringBuffer();
+                StringBuffer mysqlSql = new StringBuffer();
                 //获取最后一行去,
-                resultSet.last();
-                int oracleCount = resultSet.getRow();
-                resultSet.beforeFirst();
-                System.out.println("总条数为 " + oracleCount);
+                int oracleCount = Utils.sumColumn(resultSet);
+
+                System.out.println("表" + tableName + "数据量为: " + oracleCount);
+                //开启事物
                 conn.setAutoCommit(false);
+                //如果表里面有数据,执行mysql 脚本
                 if (oracleCount > 0) {
-                    sql1.append("insert into " + tableName + "( "  + coulum + " )" + "values(");
-                    int count2 = 0;
+                    mysqlSql.append("insert into " + tableName + "( "  + mysqlColumn + " )" + "values(");
                     while (resultSet.next()) {
-                        count2++;
+
                         for (int i =1; i <= sumColum; i++) {
-                            //最后一列不需要,
-                            if (i == sumColum) {
-                                if (resultSet.getString(i)==null){
-                                    sql1.append( resultSet.getString(i));
+                            value = resultSet.getString(i);
+                            if (value == null){
+                                mysqlSql.append(value + ",");
+                            } else {
+                                if (value.contains("'")) {
+                                    value = value.replace("'","''");
                                 }
-                                sql1.append("'" + resultSet.getString(i) + "'");
-                            }
-                            else {
-                                if (resultSet.getString(i)==null){
-                                    sql1.append(resultSet.getString(i) + ",");
-                                }
-                                sql1.append("'" + resultSet.getString(i) + "'" + ",");
-                            }
-                        }
+                                    mysqlSql.append("'" + value + "'" + ",");
 
-                        if (count2 != oracleCount) {
-                            sql1.append("),(");
-                        } else {
-                            sql1.append(")");
-                        }
 
+                            }
+
+                        }
+                        //去掉末尾逗号
+                        mysqlSql = mysqlSql.deleteCharAt(mysqlSql.length()-1);
+                        mysqlSql.append("),(");
 
                     }
+                    //去掉末尾 ,(
+                    mysqlSql = mysqlSql.deleteCharAt(mysqlSql.length()-1);
+                    mysqlSql = mysqlSql.deleteCharAt(mysqlSql.length()-1);
 
-                    System.out.println("========================获取mysql执行sql为： " + sql1);
-                    PreparedStatement preparedStatement = conn.prepareStatement(sql1 + "");
+                    System.out.println("mysql执行sql为： " + mysqlSql);
+                    PreparedStatement preparedStatement = conn.prepareStatement(mysqlSql + "");
                     preparedStatement.executeUpdate();
+                    System.out.println("mysql sql执行成功！");
 
 
                 }
                 coulum.setLength(0);
+                mysqlColumn.setLength(0);
                 resultSet.close();
-                sql1.setLength(0);
+                mysqlSql.setLength(0);
                 count++;
                 System.out.println("-------------------------------");
                 System.out.println("已成功表数量：" + count);
@@ -191,4 +171,8 @@ public class OracleToMysql {
 
 
     }
+
+
+
+
 }
