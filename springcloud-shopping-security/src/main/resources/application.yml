@@ -1,0 +1,12 @@
+server:
+  port: 8011
+  servlet:
+    context-path: /shopping-security
+spring:
+  application:
+    name: shopping-security
+  security:
+    user:
+      name: zou
+      password: 123456
+      roles: admin
