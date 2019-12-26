@@ -7,7 +7,7 @@
 <body>
 
 	<h1>权限控制登陆系统</h1>
-	<form action="/login" method="post">
+	<form action="${request.contextPath}/login" method="post">
 		<span>用户名称</span><input type="text" name="username" /> <br>
 		<span>用户密码</span><input type="password" name="password" /> <br>
 		<input type="submit" value="登陆"> 

@@ -1,7 +1,7 @@
 server:
   port: 8011
-#  servlet:
-#    context-path: /shopping-security
+  servlet:
+    context-path: /shopping-security
 spring:
   application:
     name: shopping-security
@@ -18,7 +18,9 @@ spring:
     # 设置ftl文件路径
     template-loader-path:
       - classpath:/templates
+    request-context-attribute: request
     # 设置静态文件路径，js,css等
+
   mvc:
     static-path-pattern: /static/**
   datasource:
