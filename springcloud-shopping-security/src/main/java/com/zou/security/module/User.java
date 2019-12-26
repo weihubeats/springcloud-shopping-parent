@@ -1,6 +1,13 @@
 package com.zou.security.module;
 
 import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @author wh
@@ -8,59 +15,30 @@ import lombok.Data;
  * @date 2019-12-25 10:04
  */
 @Data
-public class User {
-    /**
-     * 主键
-     */
-    private Long id;
+public class User implements UserDetails {
 
-    /**
-     * 用户名
-     */
+    private Integer id;
     private String username;
-
-    /**
-     * 密码
-     */
+    private String realname;
     private String password;
-
+    private Date createDate;
+    private Date lastLoginTime;
+    private boolean enabled;
+    private boolean accountNonExpired;
+    private boolean accountNonLocked;
+    private boolean credentialsNonExpired;
     /**
-     * 昵称
+     * 用户所有权限
      */
-    private String nickname;
+    private List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 
-    /**
-     * 手机
-     */
-    private String phone;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return authorities;
+    }
 
-    /**
-     * 邮箱
-     */
-    private String email;
 
-    /**
-     * 生日
-     */
-    private Long birthday;
 
-    /**
-     * 性别，男-1，女-2
-     */
-    private Integer sex;
 
-    /**
-     * 状态，启用-1，禁用-0
-     */
-    private Integer status;
 
-    /**
-     * 创建时间
-     */
-    private Long createTime;
-
-    /**
-     * 更新时间
-     */
-    private Long updateTime;
 }
