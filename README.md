@@ -7,6 +7,7 @@
 - springcloud集成restTemplate实现负载均衡
 - springcloud关闭自我保护机制
 - springboot集成redis
+- springboot集成security实现动态权限管理
 
 ## 待完成
 
