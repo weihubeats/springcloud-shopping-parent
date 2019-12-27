@@ -73,7 +73,7 @@ COMMIT;
 BEGIN;
 LOCK TABLES `security`.`sys_user` WRITE;
 DELETE FROM `security`.`sys_user`;
-INSERT INTO `security`.`sys_user` (`id`,`username`,`realname`,`password`,`createDate`,`lastLoginTime`,`enabled`,`accountNonExpired`,`accountNonLocked`,`credentialsNonExpired`) VALUES (1, 'admin', '阿离', '15a013bcac0c50049356b322e955035e\r\n', '2019-12-26', '2019-12-26', 1, 1, 1, 1),(2, 'user', '小奏', '15a013bcac0c50049356b322e955035e\r\n', '2019-12-26', '2019-12-26', 1, 1, 1, 1);
+INSERT INTO `security`.`sys_user` (`id`,`username`,`realname`,`password`,`createDate`,`lastLoginTime`,`enabled`,`accountNonExpired`,`accountNonLocked`,`credentialsNonExpired`) VALUES (1, 'admin', '阿离', '5ab724e6a167854b481cee5b711cb346\r\n', '2019-12-26', '2019-12-26', 1, 1, 1, 1),(2, 'user', '小奏', '5ab724e6a167854b481cee5b711cb346\r\n', '2019-12-26', '2019-12-26', 1, 1, 1, 1);
 UNLOCK TABLES;
 COMMIT;
 BEGIN;
