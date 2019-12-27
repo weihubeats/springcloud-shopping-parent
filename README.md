@@ -11,4 +11,8 @@
 - [springboot 整合swagger2](https://github.com/weihubeats/springcloud-shopping-parent/tree/master/springcloud-shopping-swagger)
 
 ## 待完成
-
+- springboot集成集成 Apollo
+- springboot集成xxl-job
+- Spring Cloud Hystrix服务容错
+- Spring Cloud Zuul服务网关
+......
