@@ -20,13 +20,18 @@
         <module>springcloud-shopping-mybatis</module>
         <module>springcloud-shopping-order</module>
         <module>springcloud-shopping-eurekaserver1</module>
+        <module>springcloud-shopping-redis</module>
+        <module>jvm-student</module>
+        <module>springcloud-zookeeper</module>
+        <module>springcloud-xxl-job</module>
     </modules>
     <packaging>pom</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.1.RELEASE</version>
+        <!--springoboot版本升级为2.26兼容最新xxl -job-->
+        <version>2.2.6.RELEASE</version>
         <relativePath/>
     </parent>
 
