@@ -3,6 +3,7 @@ package com.zou.security.service;
 import com.zou.security.mapper.UserMapper;
 import com.zou.security.module.Permission;
 import com.zou.security.module.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,7 @@ import java.util.List;
  * @date 2019/12/26 20:01
  */
 @Component
+@Slf4j
 public class MyUserDetailService implements UserDetailsService {
     @Autowired
     private UserMapper userMapper;
@@ -35,6 +38,10 @@ public class MyUserDetailService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //根据用户名查询用户信息
         User user = userMapper.findByUsername(username);
+        if (ObjectUtils.isEmpty(user)) {
+            log.info("用户" + username +"不存在");
+            throw new UsernameNotFoundException("用户不存在");
+        }
         //查询用户权限
         List<GrantedAuthority> authorities = new ArrayList<>();
         List<Permission> permissions = userMapper.findPermissionByUsername(username);
