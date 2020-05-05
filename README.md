@@ -2,7 +2,7 @@
 ## 已完成：
 - Spring Boot集成Rabbitmq
 - [Spring Boot集成mybatis](https://github.com/weihubeats/springcloud-shopping-parent/tree/master/springcloud-shopping-mybatis)
-- Spring Boot集成mybagtisPlus
+- Spring Boot集成MyBatis-Plus
 - springcloud集成eureka
 - springcloud集成eureka集群
 - springcloud集成restTemplate实现负载均衡
