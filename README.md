@@ -18,8 +18,13 @@
 - SpringCloud集成Feign
 - SpringCloud Zuul服务网关
 - Springboot集成ElasticSearch
+- Spring Boot集成集成 Apollo
+- Springboot 集成  ShardingSphere实现分库分表
 ......
 
 ## 更新说明
 2020-4-12
 集成xxl-job  springboot版本升级为2.2.6.RELEASE，如果其他项目运行有问题请替换为原来的springboot版本：2.0.1.RELEASE
+## 更新说明
+2020-5-5
+以后所有demo改用自己model 中 springboot版本,用最新版本 2.2.6.RELEASE,parent pom文件springboot和共享依赖暂时不移除，向上兼容，parent中项目无法运行
