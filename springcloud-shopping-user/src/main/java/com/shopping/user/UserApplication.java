@@ -2,8 +2,6 @@ package com.shopping.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * @author WH
@@ -18,8 +16,8 @@ public class UserApplication {
     }
 
     //密码加密解密
-    @Bean
+  /*  @Bean
     public BCryptPasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
-    }
+    }*/
 }

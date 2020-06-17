@@ -24,6 +24,7 @@
         <module>jvm-student</module>
         <module>springcloud-zookeeper</module>
         <module>springcloud-xxl-job</module>
+        <module>springcloud-shopping-mybatisPlus</module>
     </modules>
     <packaging>pom</packaging>
 

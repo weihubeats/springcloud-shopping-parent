@@ -6,27 +6,40 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springcloud-shopping-user" />
+        <module name="springcloud-shopping-redis" />
+        <module name="springcloud-shopping-oracletomysql" />
         <module name="springcloud-shopping-common" />
+        <module name="springcloud-shopping-base" />
         <module name="springcloud-shopping-rabbitmq" />
         <module name="springcloud-shopping-api-member" />
         <module name="springcloud-shopping-security" />
-        <module name="springcloud-shopping-redis" />
+        <module name="springcloud-shopping-rabbitmq-demo" />
         <module name="springcloud-shopping-mybatis" />
         <module name="springcloud-shopping-swagger" />
-        <module name="springcloud-shopping-oracletomysql" />
-        <module name="springcloud-shopping-rabbitmq-demo" />
+        <module name="jvm-student" />
+        <module name="springcloud-shopping-elasticSearch" />
+        <module name="xxl-job-admin" />
+        <module name="xxl-job-core" />
+        <module name="springboot-easyexcel" />
         <module name="springcloud-shopping-order" />
         <module name="springcloud-shopping-eurekaserver" />
         <module name="springcloud-shopping-rabbitmq-consumer" />
-        <module name="springcloud-shopping-base" />
+        <module name="xxl-job-executor-samples" />
+        <module name="springcloud-shopping-user" />
+        <module name="springcloud-zookeeper" />
         <module name="springcloud-shopping-member" />
+        <module name="springcloud-shopping-mybatisPlus" />
         <module name="springcloud-shopping-eurekaserver1" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="springcloud-xxl-job" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="jvm-student" options="-parameters" />
+      <module name="springboot-easyexcel" options="-parameters" />
       <module name="springcloud-shopping-api" options="-parameters" />
       <module name="springcloud-shopping-api-member" options="-parameters" />
       <module name="springcloud-shopping-base" options="-parameters" />
@@ -35,6 +48,7 @@
       <module name="springcloud-shopping-eurekaserver1" options="-parameters" />
       <module name="springcloud-shopping-member" options="-parameters" />
       <module name="springcloud-shopping-mybatis" options="-parameters" />
+      <module name="springcloud-shopping-mybatisPlus" options="-parameters" />
       <module name="springcloud-shopping-oracletomysql" options="-parameters" />
       <module name="springcloud-shopping-order" options="-parameters" />
       <module name="springcloud-shopping-rabbitmq" options="-parameters" />
@@ -44,6 +58,11 @@
       <module name="springcloud-shopping-security" options="-parameters" />
       <module name="springcloud-shopping-swagger" options="-parameters" />
       <module name="springcloud-shopping-user" options="-parameters" />
+      <module name="springcloud-xxl-job" options="-parameters" />
+      <module name="springcloud-zookeeper" options="-parameters" />
+      <module name="xxl-job-admin" options="-parameters" />
+      <module name="xxl-job-core" options="-parameters" />
+      <module name="xxl-job-executor-samples" options="-parameters" />
     </option>
   </component>
 </project>

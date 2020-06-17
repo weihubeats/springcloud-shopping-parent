@@ -1,17 +1,18 @@
-package com.zou.entity;
+package com.zou.quer;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDateTime;
 
 /**
  * @author WH
  * @version 1.0
- * @date 2020/5/5 11:21
+ * @date 2020/5/10 22:52
  * @Description TODO
  */
 @Data
-public class User {
+public class UserDAO {
 
     private Long id;
 
@@ -29,7 +30,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserDAO{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +

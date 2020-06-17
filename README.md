@@ -9,11 +9,15 @@
 - [springboot集成redis](https://github.com/weihubeats/springcloud-shopping-parent/tree/master/springcloud-shopping-redis)
 - [springboot集成security实现动态权限管理](https://github.com/weihubeats/springcloud-shopping-parent/tree/master/springcloud-shopping-security)
 - [springboot 整合swagger2](https://github.com/weihubeats/springcloud-shopping-parent/tree/master/springcloud-shopping-swagger)
-- springboot集成xxl-job
+- [springboot集成xxl-job](https://weihubeats.blog.csdn.net/article/details/105448950)
+- [springboot集成easyexcel](https://blog.csdn.net/qq_42651904/article/details/105604318)
+- [springboot集成mybatisplus](https://blog.csdn.net/qq_42651904/article/details/105934933)
 ## 待完成
 - springboot集成集成 Apollo
-- Spring Cloud Hystrix服务容错
-- Spring Cloud Zuul服务网关
+- SpringCloud Hystrix服务容错
+- SpringCloud集成Feign
+- SpringCloud Zuul服务网关
+- Springboot集成ElasticSearch
 ......
 
 ## 更新说明
