@@ -2,14 +2,10 @@ package elasticsearch;
 
 import elasticsearch.Dao.ProductMapper;
 import elasticsearch.entity.Product;
-import org.elasticsearch.index.query.BoolQueryBuilder;
-import org.elasticsearch.index.query.QueryBuilders;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
-import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -25,18 +21,22 @@ class DemoApplicationTests {
     @Autowired
     ElasticsearchRestTemplate template;
 
+
+
+
     @Test
     void insert() {
         Product product = new Product();
-        product.setImg("图片一");
-        product.setName("iphone");
-        product.setDescribe("打电话娱乐用的");
-        product.setPrice(new BigDecimal("5666.3"));
+        product.setId(4);
+        product.setImg("图片四");
+        product.setName("iphone plus");
+        product.setDescribe("好好看的手机呢");
+        product.setPrice(new BigDecimal("2999.3"));
         productMapper.save(product);
     }
 
     /**
-     * 批量更新
+     * 批量插入
      */
     @Test
     void inserts() {
