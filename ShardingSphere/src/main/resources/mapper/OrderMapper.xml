@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zou.dao.OrderDao">
+
+
+    <select id="getOrders" parameterType="Order"
+            resultType="Order">
+        select
+            t.id ,
+            t.user_id ,
+            t.order_id ,
+            t.user_name
+        from t_order t
+        where t.user_id=#{userId}
+	</select>
+
+    <insert id="addOrder" parameterType="Order" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_order (
+            user_id,user_name,order_id
+        ) VALUES (
+            #{userId},#{userName},#{orderId}
+        )
+    </insert>
+
+</mapper>
