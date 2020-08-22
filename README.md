@@ -30,6 +30,5 @@
 - 2020-4-12
 集成xxl-job  springboot版本升级为2.2.6.RELEASE，如果其他项目运行有问题请替换为原来的springboot版本：2.0.1.RELEASE
 
-- 2020-5-5
-以后所有demo改用自己model 中 springboot版本,用最新版本 2.2.6.RELEASE,parent pom文件springboot和共享依赖暂时不移除，向上兼容，parent中项目无法运行
- 2020-08-22  基于AOP多数据源更新完成 ，后续多更新springcloud-alibaba系列教程，工作原因偶尔更新较慢，见谅，有什么问题可以在issue提出
+- 2020-5-5 以后所有demo改用自己model 中 springboot版本,用最新版本 2.2.6.RELEASE,parent pom文件springboot和共享依赖暂时不移除，向上兼容，parent中项目无法运行
+ - 2020-08-22  基于AOP多数据源更新完成 ，后续多更新springcloud-alibaba系列教程，工作原因偶尔更新较慢，见谅，有什么问题可以在issue提出
