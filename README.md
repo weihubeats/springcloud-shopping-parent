@@ -1,4 +1,5 @@
-# springcloud学习demo
+# 感兴趣帮忙点个star吧
+# springcloud学习demo，每个demo都有相应的博客文字教程
 ## 已完成：
 - springboot集成rabbitmq
 - [springboot集成mybatis](https://github.com/weihubeats/springcloud-shopping-parent/tree/master/springcloud-shopping-mybatis)
@@ -14,6 +15,7 @@
 - [springboot集成mybatisplus](https://blog.csdn.net/qq_42651904/article/details/105934933)
 - [Springboot集成ElasticSearch](https://blog.csdn.net/qq_42651904/article/details/106864470)
 - [Springboot 集成  ShardingSphere实现分库分表](https://weihubeats.blog.csdn.net/article/details/107448437)
+- [Springboot 基于AOP 多数据源](https://weihubeats.blog.csdn.net/article/details/108164425)
 
 ## 待完成
 - springboot集成集成 Apollo
@@ -25,8 +27,9 @@
 ......
 
 ## 更新说明
-2020-4-12
+- 2020-4-12
 集成xxl-job  springboot版本升级为2.2.6.RELEASE，如果其他项目运行有问题请替换为原来的springboot版本：2.0.1.RELEASE
-## 更新说明
-2020-5-5
+
+- 2020-5-5
 以后所有demo改用自己model 中 springboot版本,用最新版本 2.2.6.RELEASE,parent pom文件springboot和共享依赖暂时不移除，向上兼容，parent中项目无法运行
+ 2020-08-22  基于AOP多数据源更新完成 ，后续多更新springcloud-alibaba系列教程，工作原因偶尔更新较慢，见谅，有什么问题可以在issue提出

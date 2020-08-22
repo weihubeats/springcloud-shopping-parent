@@ -1,6 +1,6 @@
 package com.shopping.user.controller;
 
-import entity.BaseController;
+import com.zou.entity.BaseController;
 
 /**
  * @author WH

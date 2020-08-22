@@ -5,6 +5,7 @@ import elasticsearch.entity.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 
 import java.math.BigDecimal;
@@ -18,8 +19,19 @@ class DemoApplicationTests {
     @Autowired
     ProductMapper productMapper;
 
+
+
     @Autowired
     ElasticsearchRestTemplate template;
+
+
+    @Autowired
+    ElasticsearchOperations elasticsearchOperations;
+
+
+
+
+
 
 
 

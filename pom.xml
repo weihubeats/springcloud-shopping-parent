@@ -25,6 +25,8 @@
         <module>springcloud-zookeeper</module>
         <module>springcloud-xxl-job</module>
         <module>springcloud-shopping-mybatisPlus</module>
+        <module>springcloud-shopping-datasource</module>
+        <module>springcloud-shopping-datasource</module>
     </modules>
     <packaging>pom</packaging>
 

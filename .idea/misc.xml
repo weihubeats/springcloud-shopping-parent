@@ -5,7 +5,19 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-shopping-security/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-shopping-swagger/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-shopping-oracletomysql/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-easyexcel/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-shopping-elasticSearch/pom.xml" />
+        <option value="$PROJECT_DIR$/ShardingSphere/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/springcloud-shopping-datasource/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-xxl-job/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">

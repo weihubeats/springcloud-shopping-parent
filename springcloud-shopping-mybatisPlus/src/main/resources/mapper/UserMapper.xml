@@ -4,7 +4,7 @@
 
 
     <!--自定义sql-->
-    <select id="selectPage" resultType="com.zou.entity.User">
+    <select id="selectPage" resultType="com.zou.com.zou.entity.User">
         select name,age from `user`
     </select>
 
