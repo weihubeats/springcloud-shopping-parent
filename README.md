@@ -16,7 +16,7 @@
 - [Springboot集成ElasticSearch](https://blog.csdn.net/qq_42651904/article/details/106864470)
 - [Springboot 集成  ShardingSphere实现分库分表](https://weihubeats.blog.csdn.net/article/details/107448437)
 - [Springboot 集成AOP 多数据源](https://weihubeats.blog.csdn.net/article/details/108164425)
-- [Springboot 集成 openfeign]()
+- [Springboot 集成 openfeign](https://weihubeats.blog.csdn.net/article/details/108559752)
 
 ## 待完成
 - springboot集成集成 Apollo
