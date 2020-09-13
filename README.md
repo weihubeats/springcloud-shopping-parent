@@ -15,15 +15,14 @@
 - [springboot集成mybatisplus](https://blog.csdn.net/qq_42651904/article/details/105934933)
 - [Springboot集成ElasticSearch](https://blog.csdn.net/qq_42651904/article/details/106864470)
 - [Springboot 集成  ShardingSphere实现分库分表](https://weihubeats.blog.csdn.net/article/details/107448437)
-- [Springboot 基于AOP 多数据源](https://weihubeats.blog.csdn.net/article/details/108164425)
+- [Springboot 集成AOP 多数据源](https://weihubeats.blog.csdn.net/article/details/108164425)
+- [Springboot 集成 openfeign]()
 
 ## 待完成
 - springboot集成集成 Apollo
 - SpringCloud Hystrix服务容错
 - SpringCloud集成Feign
 - SpringCloud Zuul服务网关
-
-- Spring Boot集成集成 Apollo
 ......
 
 ## 更新说明

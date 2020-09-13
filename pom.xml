@@ -27,6 +27,8 @@
         <module>springcloud-shopping-mybatisPlus</module>
         <module>springcloud-shopping-datasource</module>
         <module>springcloud-shopping-datasource</module>
+        <module>springcloud-shopping-rocketmq</module>
+        <module>springcloud-shopping-OpenFeign</module>
     </modules>
     <packaging>pom</packaging>
 

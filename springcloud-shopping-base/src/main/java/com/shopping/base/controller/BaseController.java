@@ -1,6 +1,6 @@
 package com.shopping.base.controller;
 
-import entity.ResponseBase;
+import com.zou.entity.ResponseBase;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin
 @RequestMapping("/laber")
-public class BaseController extends entity.BaseController {
+public class BaseController extends com.zou.entity.BaseController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseBase findAll() {
