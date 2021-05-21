@@ -2,8 +2,8 @@ package rabbitmq.consumer;
 
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.stereotype.Component;
 
 /**
@@ -26,4 +26,6 @@ public class SmsConsumer implements RabbitTemplate.ConfirmCallback{
     public void confirm(CorrelationData correlationData, boolean b, String s) {
 
     }
+
+
 }
