@@ -17,6 +17,7 @@
 - [Springboot 集成  ShardingSphere实现分库分表](https://weihubeats.blog.csdn.net/article/details/107448437)
 - [Springboot 集成AOP 多数据源](https://weihubeats.blog.csdn.net/article/details/108164425)
 - [Springboot 集成 openfeign](https://weihubeats.blog.csdn.net/article/details/108559752)
+- springboot 集成 mybatisplus + clickhosue
 
 ## 待完成
 - springboot集成集成 Apollo
@@ -31,3 +32,4 @@
 
 - 2020-5-5 以后所有demo改用自己model 中 springboot版本,用最新版本 2.2.6.RELEASE,parent pom文件springboot和共享依赖暂时不移除，向上兼容，parent中项目无法运行
 - 2020-08-22  基于AOP多数据源更新完成 ，后续多更新springcloud-alibaba系列教程，工作原因偶尔更新较慢，见谅，有什么问题可以在issue提出
+- 2021-05-21 springboot + mybatisPlus 整合Clickhouse完成
